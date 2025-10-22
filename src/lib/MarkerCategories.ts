@@ -1,4 +1,4 @@
-import { Leaf, LocateFixed, LucideProps, PersonStanding, Server, ServerCrash } from 'lucide-react'
+import { LocateFixed, LucideProps, Server, ServerCrash } from 'lucide-react'
 import { FunctionComponent } from 'react'
 import colors from 'tailwindcss/colors'
 

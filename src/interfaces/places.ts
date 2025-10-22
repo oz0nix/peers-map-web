@@ -12,4 +12,3 @@ export interface PlaceValues {
 
 export type PlacesType = PlaceValues[]
 export type PlacesClusterType = Record<string, PlaceValues[]>
-

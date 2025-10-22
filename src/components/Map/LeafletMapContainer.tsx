@@ -1,8 +1,9 @@
 import { LatLngBoundsExpression, LatLngExpression, MapOptions } from 'leaflet'
 import { MapContainer, TileLayer } from 'react-leaflet'
 
-import useMapContext from './useMapContext'
 import { AppConfig } from '#lib/AppConfig'
+
+import useMapContext from './useMapContext'
 
 export const LeafletMapContainer: React.FC<
   {
@@ -17,7 +18,7 @@ export const LeafletMapContainer: React.FC<
     <MapContainer
       ref={e => setMap && setMap(e || undefined)}
       className="absolute h-full w-full text-white outline-0"
-      maxBounds={(AppConfig.lockToWorld ? (AppConfig.worldBounds as LatLngBoundsExpression) : undefined)}
+      maxBounds={AppConfig.lockToWorld ? (AppConfig.worldBounds as LatLngBoundsExpression) : undefined}
       maxBoundsViscosity={AppConfig.lockToWorld ? AppConfig.lockViscosity : undefined}
       worldCopyJump={false}
       {...options}

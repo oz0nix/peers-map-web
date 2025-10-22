@@ -11,9 +11,9 @@ import MarkerCategories, { Category } from '#lib/MarkerCategories'
 import { computePeerStats, mapPeersToPlaces } from '#lib/peers/parseSubVer'
 import { getPeersRaw } from '#services/PeerService'
 
-import Sheet from '../layouts/Sheet'
+import { Sheet } from '../layouts/Sheet'
 import LeafleftMapContextProvider from './LeafletMapContextProvider'
-import BottomToggleButton from './ui/BottomToggleButton'
+import { BottomToggleButton } from './ui/BottomToggleButton'
 import useMapContext from './useMapContext'
 import useMarkerData from './useMarkerData'
 
@@ -60,7 +60,7 @@ const LeafletMapInner = () => {
   const { map } = useMapContext()
 
   // we can use this to modify our query for locations
-  const [viewState, setViewState] = useState(getViewState(map))
+  const [_viewState, setViewState] = useState(getViewState(map))
 
   const {
     width: viewportWidth,

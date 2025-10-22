@@ -12,8 +12,8 @@ interface SheetProps {
 
 const Badge = ({ children, color }: { children: React.ReactNode; color?: string }) => (
   <span
-    className={`ml-1 inline-flex items-center rounded-full px-2 py-0 text-xs font-semibold`}
-    style={{ color: color ? color : undefined, borderColor: color ? color : undefined, borderWidth: 1 }}
+    className="ml-1 inline-flex items-center rounded-full px-2 py-0 text-xs font-semibold"
+    style={{ color, borderColor: color, borderWidth: 1 }}
   >
     {children}
   </span>
@@ -82,7 +82,7 @@ export const Sheet = ({ open, stats, onToggle }: SheetProps) => {
         )}
         <div className="mb-2 flex items-center gap-2">
           <div className="text-base font-semibold text-dark">Lokichain Nodes</div>
-          <Badge color={'#16a34a'}>
+          <Badge color="#16a34a">
             <span className="font-bold">{stats?.total ?? 0}</span>
           </Badge>
         </div>

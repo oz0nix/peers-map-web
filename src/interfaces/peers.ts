@@ -15,4 +15,3 @@ export type PeersApiResponse = {
   peers: ApiPeer[]
   count: number
 }
-

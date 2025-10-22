@@ -1,4 +1,4 @@
-import { Compass, Github, Home } from 'lucide-react'
+import { Github } from 'lucide-react'
 import colors from 'tailwindcss/colors'
 
 import { AppConfig, NavMenuVariant } from '#lib/AppConfig'

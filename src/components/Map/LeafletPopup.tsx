@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { Popup, PopupProps } from 'react-leaflet'
 
@@ -19,7 +19,7 @@ interface LeafletPopupProps extends PopupProps {
 
 const LeafletPopup = ({
   handlePopupClose,
-  handleOpenLocation,
+  handleOpenLocation: _handleOpenLocation,
   color,
   icon,
   item,

@@ -1,5 +1,6 @@
+import { PlacesType } from '#interfaces/places'
+
 import { Category } from './MarkerCategories'
-import { PlaceValues, PlacesType } from '#interfaces/places'
 
 export const Places: PlacesType = [
   {

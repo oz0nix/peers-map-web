@@ -13,4 +13,3 @@ export interface PeerStats {
   flokicoind: ClientStats
   other: ClientStats
 }
-

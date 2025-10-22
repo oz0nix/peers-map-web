@@ -22,29 +22,33 @@ export const computePeerStats = (peers: ApiPeer[]): PeerStats => {
     other: init(),
   }
 
-  for (const p of peers) {
+  peers.forEach(p => {
     stats.total += 1
     const { client, version } = parseSubVer(p.subVer)
     const bucket = stats[client]
     bucket.total += 1
     if (version) bucket.versions[version] = (bucket.versions[version] || 0) + 1
-  }
+  })
 
   return stats
 }
 
+type PeerWithGeo = ApiPeer & {
+  geo: { status: string; lat: number; lon: number; country?: string; city?: string }
+}
+const hasValidGeo = (p: ApiPeer): p is PeerWithGeo =>
+  !!(p.geo && p.geo.status === 'success' && typeof p.geo.lat === 'number' && typeof p.geo.lon === 'number')
+
 export const mapPeersToPlaces = (peers: ApiPeer[]): PlacesType => {
-  const places: PlacesType = peers
-    .filter(p => p.geo && p.geo.status === 'success' && typeof p.geo.lat === 'number' && typeof p.geo.lon === 'number')
-    .map(p => ({
-      id: p.id,
-      position: [p.geo!.lat as number, p.geo!.lon as number],
-      category: ((): Category => {
-        const { client } = parseSubVer(p.subVer)
-        return client === 'neutrino' ? Category.CAT2 : Category.CAT1
-      })(),
-      title: p.geo?.city ? `${p.geo.city}, ${p.geo.country ?? ''}`.trim() : p.ip,
-      address: p.subVer || p.ip,
-    }))
+  const places: PlacesType = peers.filter(hasValidGeo).map(p => ({
+    id: p.id,
+    position: [p.geo.lat, p.geo.lon],
+    category: ((): Category => {
+      const { client } = parseSubVer(p.subVer)
+      return client === 'neutrino' ? Category.CAT2 : Category.CAT1
+    })(),
+    title: p.geo.city ? `${p.geo.city}, ${p.geo.country ?? ''}`.trim() : p.ip,
+    address: p.subVer || p.ip,
+  }))
   return places
 }
