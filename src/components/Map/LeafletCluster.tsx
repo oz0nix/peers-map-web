@@ -43,7 +43,7 @@ const CreateMarkerClusterGroup = (props: MarkerClusterControl, context: LeafletC
       LeafletDivIcon({
         source: (
           <MarkerIconWrapper color={props.color} icon={props.icon} label={`${cluster.getChildCount()}`} />
-        ),
+        ) as unknown as Parameters<typeof import('react-dom/server').renderToString>[0],
         anchor: [AppConfig.ui.markerIconSize / 2, AppConfig.ui.markerIconSize / 2],
       }),
     ...props,

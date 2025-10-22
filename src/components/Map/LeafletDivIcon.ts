@@ -2,7 +2,7 @@ import Leaflet, { PointExpression } from 'leaflet'
 import { renderToString } from 'react-dom/server'
 
 interface divIconValues {
-  source: JSX.Element
+  source: Parameters<typeof renderToString>[0]
   anchor: PointExpression
 }
 
