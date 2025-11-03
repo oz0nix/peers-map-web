@@ -1,8 +1,9 @@
 import { LatLngBoundsExpression, LatLngExpression, MapOptions } from 'leaflet'
-import { MapContainer, TileLayer } from 'react-leaflet'
+import { MapContainer } from 'react-leaflet'
 
 import { AppConfig } from '#lib/AppConfig'
 
+import { ColorizedTileLayer } from './ColorizedTileLayer'
 import useMapContext from './useMapContext'
 
 export const LeafletMapContainer: React.FC<
@@ -23,9 +24,13 @@ export const LeafletMapContainer: React.FC<
       worldCopyJump={false}
       {...options}
     >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+      <ColorizedTileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        sourceUrl="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        replaceColor={[244, 186, 87]}
+        matchColor={[170, 211, 223]}
+        tolerance={8}
+        subdomains={['a', 'b', 'c']}
         noWrap
         bounds={AppConfig.worldBounds as LatLngBoundsExpression}
       />
