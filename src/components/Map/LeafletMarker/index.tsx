@@ -61,6 +61,7 @@ export const CustomMarker = ({ place }: CustomMarkerProps) => {
         item={place}
         color={markerCategory.color}
         icon={markerCategory.icon}
+        imageUrl={markerCategory.imageUrl}
         handleOpenLocation={handleOpenLocation}
         handlePopupClose={handlePopupClose}
       />

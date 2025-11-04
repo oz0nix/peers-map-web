@@ -15,6 +15,7 @@ interface LeafletPopupProps extends PopupProps {
   item: PlaceValues
   color: MarkerCategoriesValues['color']
   icon: MarkerCategoriesValues['icon']
+  imageUrl?: MarkerCategoriesValues['imageUrl']
 }
 
 const LeafletPopup = ({
@@ -22,6 +23,7 @@ const LeafletPopup = ({
   handleOpenLocation: _handleOpenLocation,
   color,
   icon,
+  imageUrl,
   item,
   ...props
 }: LeafletPopupProps) => {
@@ -30,7 +32,7 @@ const LeafletPopup = ({
   return (
     <Popup {...props}>
       <div
-        className="absolute bg-white shadow"
+        className="absolute overflow-hidden rounded-xl bg-white shadow"
         style={{
           // todo: rework the offsets at some point
           marginLeft: `calc(-150px + ${AppConfig.ui.markerIconSize - 5}px)`,
@@ -39,22 +41,24 @@ const LeafletPopup = ({
           marginTop: -1,
         }}
       >
-        <div className="flex flex-row justify-center p-3" style={{ width: '300px' }}>
+        <div className="flex flex-row justify-center p-3" style={{ width: '250px' }}>
           <Button
-            className="absolute right-3 top-3 inline-block text-dark"
+            className="absolute right-2 top-2 inline-block text-dark"
             onClick={() => handlePopupClose(false)}
             small
+            noGutter
+            aria-label="Close"
           >
-            <X size={AppConfig.ui.markerIconSize} />
+            <X size={AppConfig.ui.menuIconSize + 2} />
           </Button>
           <div className="absolute left-0 top-0 mt-5 flex w-full justify-center">
-            <MarkerIconWrapper color={color} icon={icon} />
+            <MarkerIconWrapper color={color} icon={icon} imageUrl={imageUrl} />
           </div>
           <div
-            className="flex w-full flex-col justify-center p-3 pt-3 text-center"
+            className="flex w-full flex-col justify-center pb-3  text-center"
             style={{ marginTop: AppConfig.ui.markerIconSize * 2 + 8 }}
           >
-            <h3 className="m-0 text-lg font-bold leading-none">{title}</h3>
+            {/* <h3 className="m-0 text-lg font-bold leading-none">{title}</h3> */}
             <p className="m-0 text-secondary">{address}</p>
             {/* todo: new component for button group */}
             {/* <div className="mt-6 flex flex-row justify-between gap-2 p-2">
