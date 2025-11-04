@@ -163,6 +163,7 @@ const LeafletMapInner = () => {
                     key={item.category}
                     icon={MarkerCategories[item.category as Category].icon}
                     color={MarkerCategories[item.category as Category].color}
+                    imageUrl={MarkerCategories[item.category as Category].imageUrl}
                     chunkedLoading
                   >
                     {item.markers.map(marker => (

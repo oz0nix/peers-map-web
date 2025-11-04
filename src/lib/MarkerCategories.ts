@@ -13,6 +13,7 @@ export interface MarkerCategoriesValues {
   icon: FunctionComponent<LucideProps>
   color: string
   hideInMenu?: boolean
+  imageUrl?: string
 }
 
 type MarkerCategoryType = {
@@ -30,11 +31,13 @@ const MarkerCategories: MarkerCategoryType = {
     name: 'Peer',
     icon: ServerCrash,
     color: colors.amber[500],
+    imageUrl: '/hero.gif',
   },
   [Category.CAT2]: {
     name: 'Wallet Peer',
     icon: Server,
     color: colors.gray[600],
+    imageUrl: '/coin.gif',
   },
 }
 

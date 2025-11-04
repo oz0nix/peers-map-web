@@ -7,9 +7,10 @@ export interface MarkerIconWrapperProps {
   icon?: FunctionComponent<LucideProps>
   color: string
   label?: string
+  imageUrl?: string
 }
 
-const MarkerIconWrapper = ({ icon, color, label }: MarkerIconWrapperProps) => {
+const MarkerIconWrapper = ({ icon, color, label, imageUrl }: MarkerIconWrapperProps) => {
   const IconFC = useMemo(() => icon ?? null, [icon])
 
   return (
@@ -18,10 +19,20 @@ const MarkerIconWrapper = ({ icon, color, label }: MarkerIconWrapperProps) => {
         <span className="absolute -inset-2 rounded-full opacity-40" style={{ backgroundColor: color }} />
       )}
       <div
-        className="relative inline-block rounded-full bg-primary p-2 text-white"
-        style={{ backgroundColor: color }}
+        className={`relative inline-block rounded-full ${imageUrl ? '' : 'bg-primary p-2 text-white'}`}
+        style={imageUrl ? undefined : { backgroundColor: color }}
       >
-        {IconFC && <IconFC size={AppConfig.ui.markerIconSize} />}
+        {imageUrl ? (
+          // Constrain GIF size to markerIconSize
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={imageUrl}
+            alt=""
+            style={{ width: AppConfig.ui.markerIconSize, height: AppConfig.ui.markerIconSize }}
+          />
+        ) : (
+          IconFC && <IconFC size={AppConfig.ui.markerIconSize} />
+        )}
         {label && (
           <span className="absolute -right-2 -top-2 flex h-7 w-7 flex-col items-center rounded-full border-2 border-white bg-error pt-1 text-xs">
             {label}

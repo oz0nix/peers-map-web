@@ -42,7 +42,11 @@ export const CustomMarker = ({ place }: CustomMarkerProps) => {
       position={place.position}
       icon={LeafletDivIcon({
         source: (
-          <MarkerIconWrapper color={markerCategory.color} icon={markerCategory.icon} />
+          <MarkerIconWrapper
+            color={markerCategory.color}
+            icon={markerCategory.icon}
+            imageUrl={markerCategory.imageUrl}
+          />
         ) as unknown as Parameters<typeof import('react-dom/server').renderToString>[0],
         anchor: [AppConfig.ui.markerIconSize / 2, AppConfig.ui.markerIconSize / 2],
       })}
