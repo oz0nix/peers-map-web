@@ -67,8 +67,10 @@ const useMarkerData = ({ locations, map, viewportWidth, viewportHeight }: useMap
 
     const el = map.invalidateSize()
     if (!el) return
+
+    const minZoom = map.getBoundsZoom(allMarkerBounds)
     setAllMarkersBoundCenter({
-      minZoom: map.getBoundsZoom(allMarkerBounds),
+      minZoom,
       centerPos: [allMarkerBounds.getCenter().lat, allMarkerBounds.getCenter().lng],
     })
   }, [allMarkerBounds, leafletWindow, map, viewportWidth, viewportHeight])

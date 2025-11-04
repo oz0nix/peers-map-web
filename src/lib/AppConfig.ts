@@ -6,9 +6,9 @@ export const AppConfig = {
   flcUrl: 'https://docs.flokicoin.org',
   peersApiUrl: process.env.NEXT_PUBLIC_PEERS_API_URL,
   // World view defaults
-  minZoom: 2,
+  minZoom: 3,
   maxZoom: 18, // max zoom level of CARTO: 18
-  initialZoom: 2,
+  initialZoom: 3,
   fitToMarkersOnLoad: true,
   ui: {
     topBarHeight: 80,

@@ -11,9 +11,9 @@ import MarkerCategories, { Category } from '#lib/MarkerCategories'
 import { computePeerStats, mapPeersToPlaces } from '#lib/peers/parseSubVer'
 import { getPeersRaw } from '#services/PeerService'
 
-import { Sheet } from '../layouts/Sheet'
 import LeafleftMapContextProvider from './LeafletMapContextProvider'
-import { BottomToggleButton } from './ui/BottomToggleButton'
+import { BottomRightStats } from './ui/BottomRightStats'
+import { SlideMenu } from './ui/SlideMenu'
 import useMapContext from './useMapContext'
 import useMarkerData from './useMarkerData'
 
@@ -74,7 +74,8 @@ const LeafletMapInner = () => {
   // fetched peer markers + stats
   const [markerQueryResponse, setMarkerQueryResponse] = useState<PlacesType | undefined>(undefined)
   const [peerStats, setPeerStats] = useState<PeerStats | undefined>(undefined)
-  const [isBottomOpen, setIsBottomOpen] = useState(true)
+  const [isBottomOpen] = useState(false)
+  const [isResourcesOpen] = useState(false)
 
   // initial fetch + polling every 5 minutes
   useEffect(() => {
@@ -155,8 +156,8 @@ const LeafletMapInner = () => {
                   zoom={allMarkersBoundCenter.minZoom}
                 />
                 <LocateButton />
-                {!isBottomOpen && <BottomToggleButton onClick={() => setIsBottomOpen(true)} />}
-                <Sheet open={isBottomOpen} stats={peerStats} onToggle={() => setIsBottomOpen(false)} />
+                <SlideMenu stats={peerStats} />
+                <BottomRightStats stats={peerStats} />
                 {Object.values(clustersByCategory).map(item => (
                   <LeafletCluster
                     key={item.category}

@@ -37,3 +37,116 @@
   font-size: initial;
   min-height: initial;
 }
+
+/* Slide menu (Pepecoin-inspired) */
+.floki-menu {
+  color: white;
+  background: #2d2e2e;
+  opacity: 1;
+  width: 255px;
+  height: calc(100vh);
+  position: fixed;
+  left: -255px;
+  transition: 0.5s left;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.floki-menu.open {
+  left: 0;
+  opacity: 1;
+}
+.floki-menu .floki-rail {
+  position: absolute;
+  right: -25px;
+  cursor: pointer;
+  height: 150px;
+  width: 30px;
+}
+.floki-menu .nodes {
+  top: 35%;
+}
+.floki-menu .infos {
+  top: 50%;
+}
+.floki-menu .infos > span,
+.floki-menu .nodes > span {
+  display: inline-block;
+  position: relative;
+  transform: rotate(90deg);
+  text-wrap: nowrap;
+  padding-top: 5px;
+}
+/* Offset so labels sit centered next to the rail */
+.floki-menu .infos > span,
+.floki-menu .nodes > span {
+  left: -85px;
+}
+
+.floki-menu .menu-nodes {
+  padding: 3px 10px;
+  margin-left: 60px;
+  background-color: #3b3a3a;
+  color: white;
+}
+.floki-menu .menu-nodes:hover {
+  background-color: #f29c0b !important;
+  color: white;
+}
+.floki-menu .menu-nodes.active {
+  background-color: #f29c0b !important;
+  color: white;
+}
+.floki-menu .menu-infos {
+  padding: 3px 10px;
+  margin-left: 44px;
+  background-color: #181818;
+  color: white;
+}
+.floki-menu .menu-infos:hover {
+  background-color: #f29c0b !important;
+  color: white;
+}
+.floki-menu .menu-infos.active {
+  background-color: #f29c0b !important;
+  color: white;
+}
+.floki-menu .btNavigation {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.floki-menu .btnItem {
+  padding: 2px 10px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-radius: 5px;
+  background-color: #f4ba57 !important;
+  border: none !important;
+  color: black;
+}
+
+.floki-menu .btnItem:hover {
+  background-color: #f59e09 !important;
+  color: white !important;
+}
+.floki-menu .close {
+  color: #ffc107;
+  padding: 2px;
+  position: absolute;
+  top: -15px;
+  right: 5px;
+  font-size: 2.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.floki-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: left;
+  max-height: calc(100vh - 10px);
+  padding-right: 10px;
+}
