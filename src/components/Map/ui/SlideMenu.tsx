@@ -28,12 +28,16 @@ const IconRenderer: React.FC<{ iconName?: string; iconUrl?: string; size?: numbe
 const NodesSummary: React.FC<{ stats?: PeerStats }> = ({ stats }) => {
   const neutrino = stats?.neutrino ?? { total: 0, versions: {} }
   const flokicoind = stats?.flokicoind ?? { total: 0, versions: {} }
+  const total = stats?.total ?? neutrino.total + flokicoind.total
   return (
     <div className="text-white">
       <div className="m-4 text-lg font-bold">Lokichain Nodes</div>
       {/* Total card */}
       <div className="mb-3 rounded-xl bg-neutral-600 p-2">
-        <div className="mb-1 text-left text-sm font-bold">Total</div>
+        <div className="mb-1 flex items-center justify-center gap-2 text-center text-sm font-bold">
+          <span>Total</span>
+          <span className="rounded-full bg-green-600 px-2 py-0.5 text-xs text-white">{total}</span>
+        </div>
         <div className="space-y-1 text-sm">
           <div className="flex items-center justify-between rounded-lg bg-gray-100 px-2 py-1 text-gray-950">
             <span>Neutrino</span>
