@@ -188,7 +188,7 @@ export const SlideMenu: React.FC<SlideMenuProps> = ({ stats }) => {
         </div>
         {/* Close */}
         {open && (
-          <button className="close" onClick={onCLose} aria-label="Close">
+          <button type="button" className="close" onClick={onCLose} aria-label="Close">
             ×
           </button>
         )}
