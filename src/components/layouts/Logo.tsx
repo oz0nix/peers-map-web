@@ -1,7 +1,10 @@
+import { AppConfig } from '#lib/AppConfig'
+
 const Logo = () => (
   <div className="flex items-center">
-    {/* Simple public image; adjust sizes as desired */}
-    <img src="/logo.svg" alt="Logo" className="h-10 w-auto md:h-12" />
+    {/* Size driven by AppConfig.ui.topBarIconSize to match header */}
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img src="/logo.svg" alt="Logo" className="w-auto" style={{ height: AppConfig.ui.topBarIconSize }} />
   </div>
 )
 

@@ -11,12 +11,12 @@ export const AppConfig = {
   initialZoom: 3,
   fitToMarkersOnLoad: true,
   ui: {
-    topBarHeight: 80,
+    topBarHeight: 50,
     bigIconSize: 48,
     mapIconSize: 32,
     markerIconSize: 32,
     menuIconSize: 16,
-    topBarIconSize: 24,
+    topBarIconSize: 38,
   },
   // Center near equator to show all continents by default
   baseCenter: [0, 0] as LatLngExpression,
