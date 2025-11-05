@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useResizeDetector } from 'react-resize-detector'
 
 import Header from '#components/layouts/Header'
@@ -120,14 +120,18 @@ const LeafletMapInner = () => {
 
   const isLoading = !map || !viewportWidth || !viewportHeight
 
+  const hasFittedToMarkersRef = useRef(false)
+
   /** optionally fit to markers on load */
   useEffect(() => {
     if (!allMarkersBoundCenter || !map || !AppConfig.fitToMarkersOnLoad) return
+    if (hasFittedToMarkersRef.current) return
 
     const moveEnd = () => {
       map.off('moveend', moveEnd)
     }
 
+    hasFittedToMarkersRef.current = true
     map.flyTo(allMarkersBoundCenter.centerPos, allMarkersBoundCenter.minZoom, { animate: false })
     map.once('moveend', moveEnd)
   }, [allMarkersBoundCenter, map])

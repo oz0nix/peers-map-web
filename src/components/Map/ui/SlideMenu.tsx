@@ -66,15 +66,9 @@ const NodesSummary: React.FC<{ stats?: PeerStats }> = ({ stats }) => {
                   key={ver}
                   className="flex items-center justify-between rounded-lg bg-[#ee990d] px-2 py-1"
                 >
-                  <a
-                    href={`${AppConfig.goFlokicoinRepoUrl}/releases/tag/v${ver}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium !text-white text-white hover:underline"
-                    title={`Open release v${ver}`}
-                  >
+                  <span className="font-medium !text-white text-white" title={`Version v${ver}`}>
                     v{ver}
-                  </a>
+                  </span>
                   <span className="rounded-full border border-white/70 px-2 text-xs font-bold">{count}</span>
                 </div>
               ))}
