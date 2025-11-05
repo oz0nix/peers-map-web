@@ -11,7 +11,7 @@ import 'leaflet.markercluster'
 import { LucideProps } from 'lucide-react'
 import React, { FunctionComponent } from 'react'
 
-import { AppConfig } from '#lib/AppConfig'
+import { AppConfig } from '#src/config/AppConfig'
 
 import LeafletDivIcon from './LeafletDivIcon'
 import MarkerIconWrapper from './LeafletMarker/MarkerIconWrapper'

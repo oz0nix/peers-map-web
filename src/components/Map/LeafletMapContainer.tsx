@@ -1,7 +1,7 @@
 import { LatLngBoundsExpression, LatLngExpression, MapOptions } from 'leaflet'
 import { MapContainer } from 'react-leaflet'
 
-import { AppConfig } from '#lib/AppConfig'
+import { AppConfig } from '#src/config/AppConfig'
 
 import { ColorizedTileLayer } from './ColorizedTileLayer'
 import useMapContext from './useMapContext'

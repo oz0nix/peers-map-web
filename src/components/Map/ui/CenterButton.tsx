@@ -3,7 +3,7 @@ import { Shrink } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useMapEvents } from 'react-leaflet'
 
-import { AppConfig } from '#lib/AppConfig'
+import { AppConfig } from '#src/config/AppConfig'
 
 import useMapContext from '../useMapContext'
 

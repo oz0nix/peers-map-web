@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import useLeafletWindow from '#components/Map/useLeafletWindow'
 import { PlacesClusterType, PlacesType } from '#interfaces/places'
-import { AppConfig } from '#lib/AppConfig'
+import { AppConfig } from '#src/config/AppConfig'
 
 interface useMapDataValues {
   locations?: PlacesType

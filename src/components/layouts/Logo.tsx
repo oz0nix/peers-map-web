@@ -1,4 +1,4 @@
-import { AppConfig } from '#lib/AppConfig'
+import { AppConfig } from '#src/config/AppConfig'
 
 const Logo = () => (
   <div className="flex items-center">

@@ -1,11 +1,10 @@
 import 'leaflet/dist/leaflet.css'
+import '#styles/leaflet-custom.css'
+import '#styles/globals.css'
 
 import type { AppProps } from 'next/app'
 import { Catamaran } from 'next/font/google'
 import Head from 'next/head'
-
-import '#components/Map/leaflet-custom.css'
-import '#src/globals.css'
 
 const catamaran = Catamaran({
   subsets: ['latin'],

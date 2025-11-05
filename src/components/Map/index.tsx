@@ -6,13 +6,14 @@ import { useResizeDetector } from 'react-resize-detector'
 import Header from '#components/layouts/Header'
 import { PeerStats } from '#interfaces/peerStats'
 import { PlacesType } from '#interfaces/places'
-import { AppConfig } from '#lib/AppConfig'
 import MarkerCategories, { Category } from '#lib/MarkerCategories'
 import { computePeerStats, mapPeersToPlaces } from '#lib/peers/parseSubVer'
 import { getPeersRaw } from '#services/PeerService'
+import { AppConfig } from '#src/config/AppConfig'
 
 import LeafleftMapContextProvider from './LeafletMapContextProvider'
 import { BottomRightStats } from './ui/BottomRightStats'
+import { BottomUpgradeNode } from './ui/BottomUpgradeNode'
 import { SlideMenu } from './ui/SlideMenu'
 import useMapContext from './useMapContext'
 import useMarkerData from './useMarkerData'
@@ -157,7 +158,11 @@ const LeafletMapInner = () => {
                 />
                 <LocateButton />
                 <SlideMenu stats={peerStats} />
-                <BottomRightStats stats={peerStats} />
+                {/* Bottom-right bar: upgrade + stats responsive layout */}
+                <div className="pointer-events-auto absolute bottom-0 right-0 z-[1000] flex flex-col items-end gap-1 md:flex-row md:gap-2">
+                  <BottomUpgradeNode wrapperClassName="flex" />
+                  <BottomRightStats stats={peerStats} wrapperClassName="flex gap-0 h-7" />
+                </div>
                 {Object.values(clustersByCategory).map(item => (
                   <LeafletCluster
                     key={item.category}

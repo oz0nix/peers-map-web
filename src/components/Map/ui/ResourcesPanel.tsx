@@ -3,7 +3,7 @@ import React from 'react'
 
 import { ResourceItem, ResourcesConfig } from '#interfaces/resource'
 
-import { resourcesConfig } from '../menu/sideMenu'
+import { resourcesConfig } from '../../../config/sideMenu'
 
 interface ResourcesPanelProps {
   open: boolean

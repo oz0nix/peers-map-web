@@ -1,7 +1,7 @@
 import * as Icons from 'lucide-react'
 import React from 'react'
 
-import { sideMenu } from '../menu/sideMenu'
+import { sideMenu } from '../../../config/sideMenu'
 
 interface SideRailMenuProps {
   onOpenNodesSummary: () => void

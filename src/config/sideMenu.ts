@@ -9,7 +9,7 @@ export const sideMenu: MenuItem[] = [
 export const resourcesConfig: ResourcesConfig = {
   sections: [
     {
-      title: 'What is Flokicoin',
+      title: 'What is Lokichain?',
       items: [
         { title: 'About', href: 'https://docs.flokicoin.org/', iconName: 'Info' },
         {
@@ -20,7 +20,7 @@ export const resourcesConfig: ResourcesConfig = {
       ],
     },
     {
-      title: 'Blockchain',
+      title: 'Explorers',
       items: [
         { title: 'Mainnet', href: 'https://flokichain.info/', iconName: 'Globe' },
         { title: 'Testnet', href: 'https://testnet.flokichain.info/', iconName: 'Beaker' },
@@ -40,7 +40,7 @@ export const resourcesConfig: ResourcesConfig = {
     {
       title: 'Community',
       items: [
-        { title: 'Discord', href: 'https://discord.com/invite/MVYuF5KjxK', iconName: 'MessageCircle' },
+        { title: 'Discord', href: 'http://flokicoin.org/discord', iconName: 'MessageCircle' },
         { title: 'X', href: 'https://x.com/flokicoin_dao', iconName: 'Twitter' },
         { title: 'Github', href: 'https://github.com/flokiorg', iconName: 'Github' },
       ],

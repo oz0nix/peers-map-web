@@ -1,10 +1,10 @@
 import * as Icons from 'lucide-react'
 import React, { useMemo, useState } from 'react'
 
-import { resourcesConfig } from '#components/Map/menu/sideMenu'
 import { PeerStats } from '#interfaces/peerStats'
 import { ResourceItem } from '#interfaces/resource'
-import { AppConfig } from '#lib/AppConfig'
+import { AppConfig } from '#src/config/AppConfig'
+import { resourcesConfig } from '#src/config/sideMenu'
 
 type TabKey = 'infos' | 'nodes'
 
@@ -36,42 +36,27 @@ const NodesSummary: React.FC<{ stats?: PeerStats }> = ({ stats }) => {
       <div className="mb-3 rounded-xl bg-neutral-600 p-2">
         <div className="mb-1 flex items-center justify-center gap-2 text-center text-sm font-bold">
           <span>Total</span>
-          <span className="rounded-full bg-green-600 px-2 py-0.5 text-xs text-white">{total}</span>
+          <span className="rounded-full border border-green-600/70 bg-green-600 px-2 py-0.5 text-xs font-bold text-white">
+            {total}
+          </span>
         </div>
         <div className="space-y-1 text-sm">
-          <div className="flex items-center justify-between rounded-lg bg-gray-100 px-2 py-1 text-gray-950">
-            <span>Neutrino</span>
-            <span className="rounded-full border border-gray-950 px-2 text-xs ">{neutrino.total}</span>
+          <div className="flex items-center justify-between rounded-lg bg-[#ee990d] px-2 py-1 font-bold">
+            <span>Full Nodes</span>
+            <span className="rounded-full border border-white/70 px-2 text-xs font-bold ">
+              {flokicoind.total}
+            </span>
           </div>
-          <div className="flex items-center justify-between rounded-lg bg-[#ee990d] px-2 py-1">
-            <span>Flokicoind</span>
-            <span className="rounded-full border border-white/70 px-2 text-xs">{flokicoind.total}</span>
+          <div className="flex items-center justify-between rounded-lg bg-gray-100 px-2 py-1 font-bold text-gray-950">
+            <span>Light Nodes</span>
+            <span className="rounded-full border border-gray-950 px-2 text-xs">{neutrino.total}</span>
           </div>
         </div>
       </div>
       <div className="mb-3 grid grid-cols-1 gap-2">
         <div className="rounded-xl bg-neutral-600 p-2">
-          <div className="mb-1 text-center text-sm font-bold">Neutrino</div>
-          <div className="space-y-1 text-sm">
-            {Object.entries(neutrino.versions)
-              .sort(([a], [b]) => (a > b ? -1 : 1))
-              .map(([ver, count]) => (
-                <div
-                  key={ver}
-                  className="flex items-center justify-between rounded-lg bg-gray-100 px-2 py-1 text-gray-950"
-                >
-                  <span>- {ver}</span>
-                  <span className="rounded-full border border-gray-950 px-2 text-xs">{count}</span>
-                </div>
-              ))}
-            {Object.keys(neutrino.versions).length === 0 && (
-              <div className="rounded-lg bg-gray-100 px-2 py-1 text-center opacity-80">No data</div>
-            )}
-          </div>
-        </div>
-        <div className="rounded-xl bg-neutral-600 p-2">
           <div className="mb-1 text-center text-sm font-bold" style={{ color: '#f59e0b' }}>
-            Flokicoind
+            Flokicoin Core
           </div>
           <div className="space-y-1 text-sm">
             {Object.entries(flokicoind.versions)
@@ -81,12 +66,39 @@ const NodesSummary: React.FC<{ stats?: PeerStats }> = ({ stats }) => {
                   key={ver}
                   className="flex items-center justify-between rounded-lg bg-[#ee990d] px-2 py-1"
                 >
-                  <span>- {ver}</span>
-                  <span className="rounded-full border border-white/70 px-2 text-xs">{count}</span>
+                  <a
+                    href={`${AppConfig.goFlokicoinRepoUrl}/releases/tag/v${ver}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium !text-white text-white hover:underline"
+                    title={`Open release v${ver}`}
+                  >
+                    v{ver}
+                  </a>
+                  <span className="rounded-full border border-white/70 px-2 text-xs font-bold">{count}</span>
                 </div>
               ))}
             {Object.keys(flokicoind.versions).length === 0 && (
               <div className="rounded-lg bg-[#ee990d] px-2 py-1 text-center opacity-80">No data</div>
+            )}
+          </div>
+        </div>
+        <div className="rounded-xl bg-neutral-600 p-2">
+          <div className="mb-1 text-center text-sm font-bold">Flokicoin Neutrino</div>
+          <div className="space-y-1 text-sm">
+            {Object.entries(neutrino.versions)
+              .sort(([a], [b]) => (a > b ? -1 : 1))
+              .map(([ver, count]) => (
+                <div
+                  key={ver}
+                  className="flex items-center justify-between rounded-lg bg-gray-100 px-2 py-1 font-bold text-gray-950"
+                >
+                  <span>v{ver}</span>
+                  <span className="rounded-full border border-gray-950 px-2 text-xs">{count}</span>
+                </div>
+              ))}
+            {Object.keys(neutrino.versions).length === 0 && (
+              <div className="rounded-lg bg-gray-100 px-2 py-1 text-center opacity-80">No data</div>
             )}
           </div>
         </div>

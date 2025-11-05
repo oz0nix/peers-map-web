@@ -4,6 +4,7 @@ import { LatLngExpression } from 'leaflet'
 export const AppConfig = {
   githubUrl: 'https://github.com/oz0nix/peers-map-web.git',
   flcUrl: 'https://docs.flokicoin.org',
+  goFlokicoinRepoUrl: 'https://github.com/flokiorg/go-flokicoin',
   peersApiUrl: process.env.NEXT_PUBLIC_PEERS_API_URL,
   // World view defaults
   minZoom: 3,

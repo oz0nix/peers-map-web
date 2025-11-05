@@ -3,7 +3,7 @@ import Link from 'next/link'
 import colors from 'tailwindcss/colors'
 
 import Logo from '#components/layouts/Logo'
-import { AppConfig } from '#lib/AppConfig'
+import { AppConfig } from '#src/config/AppConfig'
 
 const Header = () => (
   <div
@@ -23,7 +23,7 @@ const Header = () => (
           className="font-medium"
           style={{ color: colors.amber[500] }}
         >
-          What is Flokicoin?
+          What is Lokichain?
         </Link>
         <Link href={AppConfig.githubUrl} target="_blank" aria-label="GitHub" className="text-white">
           <Github size={24} />

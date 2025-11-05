@@ -2,8 +2,8 @@ import axios from 'axios'
 
 import { ApiPeer, PeersApiResponse } from '#interfaces/peers'
 import { PlacesType } from '#interfaces/places'
-import { AppConfig } from '#lib/AppConfig'
 import { mapPeersToPlaces } from '#lib/peers/parseSubVer'
+import { AppConfig } from '#src/config/AppConfig'
 
 export const getPeersRaw = async (): Promise<ApiPeer[]> => {
   const baseUrl = AppConfig.peersApiUrl

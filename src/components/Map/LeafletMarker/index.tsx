@@ -3,8 +3,8 @@ import { useCallback, useMemo } from 'react'
 import { Marker as ReactMarker } from 'react-leaflet'
 
 import { PlaceValues } from '#interfaces/places'
-import { AppConfig } from '#lib/AppConfig'
 import MarkerCategories from '#lib/MarkerCategories'
+import { AppConfig } from '#src/config/AppConfig'
 
 import LeafletDivIcon from '../LeafletDivIcon'
 import useMapContext from '../useMapContext'

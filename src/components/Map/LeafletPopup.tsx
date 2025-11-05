@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic'
 import { Popup, PopupProps } from 'react-leaflet'
 
 import { PlaceValues } from '#interfaces/places'
-import { AppConfig } from '#lib/AppConfig'
 import { MarkerCategoriesValues } from '#lib/MarkerCategories'
+import { AppConfig } from '#src/config/AppConfig'
 
 const MarkerIconWrapper = dynamic(() => import('#components/Map/LeafletMarker/MarkerIconWrapper'))
 const Button = dynamic(() => import('#components/common/Button'))

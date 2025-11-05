@@ -1,6 +1,6 @@
 import { ArrowUp } from 'lucide-react'
 
-import { AppConfig } from '#lib/AppConfig'
+import { AppConfig } from '#src/config/AppConfig'
 
 interface BottomToggleButtonProps {
   onClick: () => void

@@ -1,7 +1,7 @@
 import { Github } from 'lucide-react'
 import colors from 'tailwindcss/colors'
 
-import { AppConfig, NavMenuVariant } from '#lib/AppConfig'
+import { AppConfig, NavMenuVariant } from '#src/config/AppConfig'
 
 import NavMenuItem from './NavMenuItem'
 
