@@ -2,7 +2,7 @@ import { LatLngExpression } from 'leaflet'
 
 // FIXME: naming and structure
 export const AppConfig = {
-  githubUrl: 'https://github.com/oz0nix/peers-map-web.git',
+  githubUrl: 'https://github.com/oz0nix/lokichain-peers-map',
   flcUrl: 'https://docs.flokicoin.org',
   goFlokicoinRepoUrl: 'https://github.com/flokiorg/go-flokicoin',
   peersApiUrl: process.env.NEXT_PUBLIC_PEERS_API_URL,
