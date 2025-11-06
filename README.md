@@ -1,36 +1,39 @@
-Flokicoin Nodes Map (Next.js + React Leaflet)
-===============
+<p align="center">
+  <img src="public/logo.svg" alt="Lokichain Peers Map logo" width="160" />
+</p>
 
-A web app to visualize Flokicoin network nodes on an interactive map. It’s built with Next.js 14, TypeScript, React Leaflet, Tailwind CSS, and Lucide icons. Nodes are clustered by category with custom icons and colors, and a bottom sheet shows live statistics by client and version.
+# Lokichain Peers Map
 
-### Features
+Discover the global network of Lokichain peers on an interactive world map. Track their distribution in real time with client, version, and location insights layered in context.
 
-- Modern stack: Next.js 14, TypeScript, React Leaflet, Tailwind, Lucide
-- Fetch peers from a configurable API (`/peers`)
-- Node categories: Flokicoind and Neutrino (distinct colors/icons)
-- Marker clustering with count bubbles
-- Custom marker popups
-- Bottom sheet with client/version stats
-- Utility buttons: center to markers, locate me
+## Highlights
 
-### Requirements
+- Global map that clusters peers and reveals hot spots as you zoom
+- Detailed peer cards with geographic, version, and client information
+- Real-time stats panel that aggregates peers by client family and release
+- Quick actions to refocus on the active network or locate the viewer
 
-- Node.js 18+
+## Preview
+
+![Lokichain Peers Map preview](public/lokichain-peers-map.png)
+
+## Requirements
+
+- Node.js 18 or newer
 - Yarn or npm
 
-### Configuration
+## Configuration
 
-Provide the base URL for the peers API (must expose a `/peers` endpoint). Create `.env.local` in the project root:
+The app expects an accessible peers API exposing a `/peers` endpoint. Create `.env.local` in the project root and point it to your endpoint:
 
 ```bash
 NEXT_PUBLIC_PEERS_API_URL=http://localhost:8787
 ```
 
-- The app calls `GET {BASE}/peers`.
-- See `src/services/PeerService.ts` and `src/lib/peers/parseSubVer.ts` for fetching, mapping, and stats logic.
-- App options (zoom, center, UI sizes) live in `src/lib/AppConfig.ts`.
+- The frontend calls `GET {BASE_URL}/peers`.
+- Responses must return an array of peers with IDs, IPs, `subVer`, and optional geolocation metadata.
 
-Example response shape for `GET /peers`:
+### Sample response
 
 ```json
 {
@@ -38,16 +41,22 @@ Example response shape for `GET /peers`:
     {
       "id": "string",
       "ip": "1.2.3.4",
-      "subVer": "Flokicoind:0.1.0" ,
-      "geo": { "status": "success", "lat": 48.8566, "lon": 2.3522, "city": "Paris", "country": "FR" }
+      "subVer": "Flokicoind:0.1.0",
+      "geo": {
+        "status": "success",
+        "lat": 48.8566,
+        "lon": 2.3522,
+        "city": "Paris",
+        "country": "FR"
+      }
     }
   ]
 }
 ```
 
-### Quick Start
+## Getting Started
 
-Install dependencies and start the dev server:
+Install dependencies and launch the development server:
 
 ```bash
 yarn && yarn dev
@@ -55,7 +64,7 @@ yarn && yarn dev
 npm install && npm run dev
 ```
 
-Build and run in production:
+## Production Build
 
 ```bash
 yarn build && yarn start
@@ -63,14 +72,6 @@ yarn build && yarn start
 npm run build && npm start
 ```
 
-### Project Structure (Highlights)
-
-- `src/components/Map/` map components (cluster, markers, controls)
-- `src/components/layouts/Sheet.tsx` bottom stats sheet
-- `src/services/PeerService.ts` peers API client
-- `src/lib/peers/parseSubVer.ts` parse `subVer`, compute stats, map categories
-- `src/lib/MarkerCategories.ts` category icons and colors
-
-### License
+## License
 
 MIT (see `package.json`).

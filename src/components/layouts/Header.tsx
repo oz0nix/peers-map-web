@@ -12,7 +12,7 @@ const Header = () => (
   >
     <div className="relative flex h-full items-center">
       {/* Left: Logo */}
-      <div className="absolute left-3 top-1/2 -translate-y-1/2">
+      <div className="absolute  top-1/2 -translate-y-1/2">
         <Logo />
       </div>
       {/* Right: CTA + GitHub */}

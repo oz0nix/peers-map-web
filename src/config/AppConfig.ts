@@ -17,7 +17,7 @@ export const AppConfig = {
     mapIconSize: 32,
     markerIconSize: 32,
     menuIconSize: 16,
-    topBarIconSize: 38,
+    topBarIconSize: 32,
   },
   // Center near equator to show all continents by default
   baseCenter: [0, 0] as LatLngExpression,
