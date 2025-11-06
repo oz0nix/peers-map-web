@@ -7,17 +7,17 @@ const MapPage = () => {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Lokichain Peers Map',
-    url: 'https://21chain.com/',
+    url: 'https://lokimap.com/',
     description:
       'Interactive map showing real-time Flokicoin (FLC) peer nodes and network distribution on Lokichain.',
-    image: 'https://21chain.com/og/lokichain-peers-map.png',
+    image: 'https://lokimap.com/lokichain-peers-map.png',
     publisher: {
       '@type': 'Organization',
       name: 'Flokicoin',
       url: 'https://flokicoin.org',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://21chain.com/logo.svg',
+        url: 'https://lokimap.com/logo.svg',
       },
     },
   }
@@ -39,7 +39,7 @@ const MapPage = () => {
         />
         <meta name="robots" content="index,follow" />
 
-        <link rel="canonical" href="https://21chain.com/" />
+        <link rel="canonical" href="https://lokimap.com/" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#0B1221" />
 
@@ -51,8 +51,8 @@ const MapPage = () => {
           property="og:description"
           content="Live map of Lokichain peers and full nodes worldwide. Monitor network connections, status, and node health in real time."
         />
-        <meta property="og:url" content="https://21chain.com/" />
-        <meta property="og:image" content="https://21chain.com/lokichain-peers-map.png" />
+        <meta property="og:url" content="https://lokimap.com/" />
+        <meta property="og:image" content="https://lokimap.com/lokichain-peers-map.png" />
         <meta property="og:image:alt" content="Lokichain peers map preview" />
         <meta property="og:locale" content="en_US" />
 
@@ -66,7 +66,7 @@ const MapPage = () => {
           name="twitter:description"
           content="Visualize active Lokichain (FLC) nodes and peers across the globe."
         />
-        <meta name="twitter:image" content="https://21chain.com/lokichain-peers-map.png" />
+        <meta name="twitter:image" content="https://lokimap.com/lokichain-peers-map.png" />
 
         {/* Structured Data (JSON-LD) */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
