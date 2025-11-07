@@ -1,21 +1,18 @@
 <p align="center">
-  <img src="public/logo.svg" alt="Lokichain Peers Map logo" width="160" />
+  <img src="public/lokichain-peers-map.png" alt="Lokichain Peers Map logo" width="400" />
 </p>
 
 # Lokichain Peers Map
 
-Discover the global network of Lokichain peers on an interactive world map. Track their distribution in real time with client, version, and location insights layered in context.
+Explore the Lokichain network in real time.  
+View where nodes are located across the world and gain insights into their clients and versions.
 
-## Highlights
+## Features
 
-- Global map that clusters peers and reveals hot spots as you zoom
-- Detailed peer cards with geographic, version, and client information
-- Real-time stats panel that aggregates peers by client family and release
-- Quick actions to refocus on the active network or locate the viewer
-
-## Preview
-
-![Lokichain Peers Map preview](public/lokichain-peers-map.png)
+- Interactive global map that clusters peers and highlights regional activity
+- Peer detail cards showing geographic location, client type, and version information
+- Live stats panel summarizing peers by client family and release
+- Displays the current stable release of Flokicoin Core for reference
 
 ## Requirements
 
