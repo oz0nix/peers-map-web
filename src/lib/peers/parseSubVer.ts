@@ -8,8 +8,12 @@ export const parseSubVer = (subVer?: string): { client: PeerClient; version: str
   const lower = subVer.toLowerCase()
   const matchNeutrino = lower.match(/neutrino:([0-9.]+)/)
   if (matchNeutrino && matchNeutrino[1]) return { client: 'neutrino', version: matchNeutrino[1] }
+  const matchLokitrino = lower.match(/lokitrino:([0-9.]+)/)
+  if (matchLokitrino && matchLokitrino[1]) return { client: 'neutrino', version: matchLokitrino[1] }
   const matchFloki = lower.match(/flokicoind:([0-9.]+)/)
   if (matchFloki && matchFloki[1]) return { client: 'flokicoind', version: matchFloki[1] }
+  const matchLokid = lower.match(/lokid:([0-9.]+)/)
+  if (matchLokid && matchLokid[1]) return { client: 'flokicoind', version: matchLokid[1] }
   return { client: 'other', version: null }
 }
 
