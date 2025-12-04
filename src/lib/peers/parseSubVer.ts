@@ -56,3 +56,21 @@ export const mapPeersToPlaces = (peers: ApiPeer[]): PlacesType => {
   }))
   return places
 }
+
+const versionParts = (ver: string): number[] => {
+  // Extract numeric segments; non-numeric parts are ignored for ordering
+  const matches = ver.match(/\d+/g)
+  return matches ? matches.map(Number) : []
+}
+
+export const compareVersionsDesc = (a: string, b: string): number => {
+  const pa = versionParts(a)
+  const pb = versionParts(b)
+  const len = Math.max(pa.length, pb.length)
+  for (let i = 0; i < len; i += 1) {
+    const na = pa[i] ?? 0
+    const nb = pb[i] ?? 0
+    if (na !== nb) return nb - na // higher number first
+  }
+  return a.localeCompare(b) * -1 // stable fallback descending
+}

@@ -2,6 +2,7 @@ import { ArrowDown } from 'lucide-react'
 import colors from 'tailwindcss/colors'
 
 import { PeerStats } from '#interfaces/peerStats'
+import { compareVersionsDesc } from '#lib/peers/parseSubVer'
 import MarkerCategories, { Category } from '#lib/MarkerCategories'
 
 interface SheetProps {
@@ -51,7 +52,7 @@ const VersionsBlock = ({
     </div>
     <div className="mt-2 space-y-1 p-3">
       {Object.entries(versions)
-        .sort(([a], [b]) => (a > b ? -1 : 1))
+        .sort(([a], [b]) => compareVersionsDesc(a, b))
         .map(([ver, count]) => (
           <StatLine key={ver} label={ver} value={count} color={color} />
         ))}

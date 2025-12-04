@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react'
 
 import { PeerStats } from '#interfaces/peerStats'
 import { ResourceItem } from '#interfaces/resource'
+import { compareVersionsDesc } from '#lib/peers/parseSubVer'
 import { AppConfig } from '#src/config/AppConfig'
 import { resourcesConfig } from '#src/config/sideMenu'
 
@@ -60,7 +61,7 @@ const NodesSummary: React.FC<{ stats?: PeerStats }> = ({ stats }) => {
           </div>
           <div className="space-y-1 text-sm">
             {Object.entries(flokicoind.versions)
-              .sort(([a], [b]) => (a > b ? -1 : 1))
+              .sort(([a], [b]) => compareVersionsDesc(a, b))
               .map(([ver, count]) => (
                 <div
                   key={ver}
@@ -81,7 +82,7 @@ const NodesSummary: React.FC<{ stats?: PeerStats }> = ({ stats }) => {
           <div className="mb-1 text-center text-sm font-bold">Flokicoin Neutrino</div>
           <div className="space-y-1 text-sm">
             {Object.entries(neutrino.versions)
-              .sort(([a], [b]) => (a > b ? -1 : 1))
+              .sort(([a], [b]) => compareVersionsDesc(a, b))
               .map(([ver, count]) => (
                 <div
                   key={ver}
